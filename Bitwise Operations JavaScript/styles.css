@@ -34,13 +34,21 @@ body {
   border-color: #3b82f6;
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
 }
+/* CSS to remove the default number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 .binary-display {
   font-family: "Roboto Mono", monospace;
   letter-spacing: 0.2em;
 }
 .op-grid {
   display: grid;
-  /* Changed to 9 columns for alignment: 1 for operator, 8 for bits */
   grid-template-columns: auto repeat(8, 1fr);
   gap: 4px;
   text-align: center;
