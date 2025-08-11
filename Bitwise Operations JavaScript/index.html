@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitwise Operations Visualizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body
+    class="w-full min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8"
+  >
+    <canvas id="canvas-bg"></canvas>
+
+    <div class="main-container w-full max-w-4xl mx-auto">
+      <header class="text-center mb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">
+          Bitwise Operations
+        </h1>
+        <p class="text-base md:text-lg text-gray-400">
+          Visualizing AND, OR, and XOR.
+        </p>
+      </header>
+
+      <!-- Input Section -->
+      <div
+        class="card p-6 mb-8 flex flex-col md:flex-row items-center justify-center gap-6"
+      >
+        <div class="text-center">
+          <label for="num1" class="text-lg">Number A</label>
+          <input
+            id="num1"
+            type="number"
+            value="12"
+            min="0"
+            max="255"
+            class="input-field w-32 p-2 rounded-md text-white mt-1"
+          />
+          <div
+            id="bin1"
+            class="binary-display text-gray-400 mt-2 text-lg"
+          ></div>
+        </div>
+        <div class="text-2xl font-mono text-gray-500">&</div>
+        <div class="text-center">
+          <label for="num2" class="text-lg">Number B</label>
+          <input
+            id="num2"
+            type="number"
+            value="5"
+            min="0"
+            max="255"
+            class="input-field w-32 p-2 rounded-md text-white mt-1"
+          />
+          <div
+            id="bin2"
+            class="binary-display text-gray-400 mt-2 text-lg"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Operations Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- AND Card -->
+        <div class="card p-6">
+          <h2 class="text-2xl font-bold text-center mb-4">AND (&)</h2>
+          <div id="and-op" class="op-grid"></div>
+          <div class="text-center mt-4">
+            <p class="text-gray-400">Result</p>
+            <p id="and-result" class="text-2xl font-bold text-blue-400"></p>
+          </div>
+        </div>
+        <!-- OR Card -->
+        <div class="card p-6">
+          <h2 class="text-2xl font-bold text-center mb-4">OR (|)</h2>
+          <div id="or-op" class="op-grid"></div>
+          <div class="text-center mt-4">
+            <p class="text-gray-400">Result</p>
+            <p id="or-result" class="text-2xl font-bold text-green-400"></p>
+          </div>
+        </div>
+        <!-- XOR Card -->
+        <div class="card p-6">
+          <h2 class="text-2xl font-bold text-center mb-4">XOR (^)</h2>
+          <div id="xor-op" class="op-grid"></div>
+          <div class="text-center mt-4">
+            <p class="text-gray-400">Result</p>
+            <p id="xor-result" class="text-2xl font-bold text-yellow-400"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
