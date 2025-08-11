@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Break vs. Continue Visualizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body
+    class="w-full min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8"
+  >
+    <canvas id="canvas-bg"></canvas>
+
+    <div class="main-container w-full max-w-6xl mx-auto">
+      <header class="text-center mb-8 md:mb-12">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">
+          Break vs. Continue
+        </h1>
+        <p class="text-base md:text-lg text-gray-400">
+          An interactive visualizer for loop control.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Break Demo Card -->
+        <div class="demo-card p-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">break</h2>
+          <p class="text-gray-400 mb-4">
+            Terminates the entire loop permanently when a condition is met.
+          </p>
+
+          <div class="code-block p-4 mb-4 text-sm">
+            <span class="text-purple-400">for</span> (let i = 1; i <= 10; i++)
+            {<br />
+            &nbsp;&nbsp;<span class="text-purple-400">if</span> (i === 5) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<strong class="text-red-400">break;</strong>
+            // Stop everything<br />
+            &nbsp;&nbsp;}<br />
+            &nbsp;&nbsp;console.log(i);<br />
+            }
+          </div>
+
+          <div class="flex-grow bg-gray-900/50 p-4 rounded-md min-h-[120px]">
+            <h3 class="text-gray-400 text-sm mb-2">Output:</h3>
+            <div
+              id="break-output"
+              class="font-mono text-lg text-blue-300 flex flex-wrap gap-x-4"
+            ></div>
+          </div>
+
+          <button
+            id="run-break"
+            class="run-button text-white font-bold py-3 px-4 rounded-md w-full mt-6"
+          >
+            Run `break` Demo
+          </button>
+        </div>
+
+        <!-- Continue Demo Card -->
+        <div class="demo-card p-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            continue
+          </h2>
+          <p class="text-gray-400 mb-4">
+            Skips the rest of the current iteration and proceeds to the next
+            one.
+          </p>
+
+          <div class="code-block p-4 mb-4 text-sm">
+            <span class="text-purple-400">for</span> (let i = 1; i <= 10; i++)
+            {<br />
+            &nbsp;&nbsp;<span class="text-purple-400">if</span> (i === 5) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<strong class="text-yellow-400"
+              >continue;</strong
+            >
+            // Skip this one<br />
+            &nbsp;&nbsp;}<br />
+            &nbsp;&nbsp;console.log(i);<br />
+            }
+          </div>
+
+          <div class="flex-grow bg-gray-900/50 p-4 rounded-md min-h-[120px]">
+            <h3 class="text-gray-400 text-sm mb-2">Output:</h3>
+            <div
+              id="continue-output"
+              class="font-mono text-lg text-green-300 flex flex-wrap gap-x-4"
+            ></div>
+          </div>
+
+          <button
+            id="run-continue"
+            class="run-button text-white font-bold py-3 px-4 rounded-md w-full mt-6"
+          >
+            Run `continue` Demo
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
