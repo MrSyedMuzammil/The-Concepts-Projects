@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For...In vs For...Of Visualizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body
+    class="w-full min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8"
+  >
+    <!-- Animated Geometric Background -->
+    <canvas id="canvas-bg"></canvas>
+
+    <!-- Main Content Container -->
+    <div class="main-container w-full max-w-6xl mx-auto">
+      <header class="text-center mb-8 md:mb-12">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">
+          For...In vs For...Of
+        </h1>
+        <p class="text-base md:text-lg text-gray-400">
+          An interactive visualizer to see the difference.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- For...In Demo Card -->
+        <div class="demo-card p-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            for...in
+          </h2>
+          <p class="text-gray-400 mb-4">
+            Iterates over the
+            <strong class="text-blue-400"
+              >enumerable property names (keys)</strong
+            >
+            of an object.
+          </p>
+
+          <div id="for-in-object-display" class="code-block p-4 mb-4 text-sm">
+            <span class="text-purple-400">const</span> userProfile = {<br />
+            &nbsp;&nbsp;<span id="key-username" class="text-green-400"
+              >username</span
+            >: <span class="text-orange-400">'Alex'</span>,<br />
+            &nbsp;&nbsp;<span id="key-level" class="text-green-400">level</span
+            >: <span class="text-orange-400">12</span>,<br />
+            &nbsp;&nbsp;<span id="key-is_active" class="text-green-400"
+              >is_active</span
+            >: <span class="text-orange-400">true</span><br />
+            };
+          </div>
+
+          <div class="code-block p-4 mb-4 text-sm">
+            <span class="text-purple-400">for</span> (<span
+              class="text-purple-400"
+              >const</span
+            >
+            key <span class="text-purple-400">in</span> userProfile) { ... }
+          </div>
+
+          <div class="flex-grow bg-gray-900/50 p-4 rounded-md min-h-[120px]">
+            <h3 class="text-gray-400 text-sm mb-2">Output (The Keys):</h3>
+            <div
+              id="for-in-output"
+              class="font-mono text-lg text-blue-300"
+            ></div>
+          </div>
+
+          <button
+            id="run-for-in"
+            class="run-button text-white font-bold py-3 px-4 rounded-md w-full mt-6"
+          >
+            Run for...in
+          </button>
+        </div>
+
+        <!-- For...Of Demo Card -->
+        <div class="demo-card p-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            for...of
+          </h2>
+          <p class="text-gray-400 mb-4">
+            Iterates over the <strong class="text-green-400">values</strong> of
+            an iterable object (like an Array).
+          </p>
+
+          <div id="for-of-array-display" class="code-block p-4 mb-4 text-sm">
+            <span class="text-purple-400">const</span> userBadges = [<br />
+            &nbsp;&nbsp;<span id="val-gold" class="text-orange-400">'Gold'</span
+            >,<br />
+            &nbsp;&nbsp;<span id="val-first-post" class="text-orange-400"
+              >'First-Post'</span
+            >,<br />
+            &nbsp;&nbsp;<span id="val-top-commenter" class="text-orange-400"
+              >'Top-Commenter'</span
+            ><br />
+            ];
+          </div>
+
+          <div class="code-block p-4 mb-4 text-sm">
+            <span class="text-purple-400">for</span> (<span
+              class="text-purple-400"
+              >const</span
+            >
+            badge <span class="text-purple-400">of</span> userBadges) { ... }
+          </div>
+
+          <div class="flex-grow bg-gray-900/50 p-4 rounded-md min-h-[120px]">
+            <h3 class="text-gray-400 text-sm mb-2">Output (The Values):</h3>
+            <div
+              id="for-of-output"
+              class="font-mono text-lg text-green-300"
+            ></div>
+          </div>
+
+          <button
+            id="run-for-of"
+            class="run-button text-white font-bold py-3 px-4 rounded-md w-full mt-6"
+          >
+            Run for...of
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
