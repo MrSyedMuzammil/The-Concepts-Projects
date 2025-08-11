@@ -1,0 +1,136 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #111827;
+  color: #e5e7eb;
+  overflow-y: auto;
+}
+#canvas-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.main-container {
+  position: relative;
+  z-index: 1;
+}
+.demo-card {
+  background-color: rgba(31, 41, 55, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(75, 85, 99, 0.5);
+  border-radius: 0.75rem;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+.action-button {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.action-button:active {
+  transform: scale(0.98);
+}
+.action-button:disabled {
+  background-color: #4b5563;
+  cursor: not-allowed;
+}
+.input-field {
+  background-color: #1f2937;
+  border: 1px solid #4b5563;
+}
+.input-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+.set-item,
+.map-key,
+.map-value {
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease;
+}
+.flash-add {
+  animation: flash-green-bg 0.7s ease;
+}
+.flash-exists {
+  animation: flash-yellow-bg 0.7s ease;
+}
+.flash-update {
+  animation: flash-blue-bg 0.7s ease;
+}
+.log-container {
+  position: relative;
+  height: 44px; /* Set a fixed height for the log area */
+  overflow: hidden;
+}
+.log-message {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  animation: slideInAndFade 0.5s ease-out forwards;
+}
+.log-success {
+  background-color: rgba(74, 222, 128, 0.15);
+  color: #a7f3d0;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+.log-fail {
+  background-color: rgba(248, 113, 113, 0.15);
+  color: #fecaca;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slideInAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes flash-green-bg {
+  0%,
+  100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(74, 222, 128, 0.3);
+  }
+}
+@keyframes flash-yellow-bg {
+  0%,
+  100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(250, 204, 21, 0.3);
+  }
+}
+@keyframes flash-blue-bg {
+  0%,
+  100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(96, 165, 250, 0.3);
+  }
+}
